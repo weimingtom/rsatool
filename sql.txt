@@ -1,0 +1,12 @@
+select a.name as columnname,b.name tablename, 
+c.name typename, 
+a.max_length, 
+a.precision, 
+a.scale 
+from sys.columns a, 
+sys.objects b, 
+sys.types c 
+where a.object_id=b.object_id  
+and a.user_type_id=c.user_type_id 
+and b.type='u'  
+order by b.name 
